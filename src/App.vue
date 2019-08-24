@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <p>App.vue:{{count}}</p>
+    <h1>App.vue:{{count}}</h1>
     <p>App.vue:{{todos}}</p>
     <Count />
   </div>
@@ -11,6 +11,9 @@ import Count from "./components/Count";
 import { mapState } from "vuex";
 export default {
   name: "app",
+  components: {
+    Count
+  },
   // 3
   computed: mapState(["count", "todos"])
   // 2

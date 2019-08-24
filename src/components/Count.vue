@@ -3,7 +3,7 @@
     <div>
       <hr />
       <h1>Count.vue:{{count}}</h1>
-      <p>{{todos}}</p>
+      <p>>Count.vue:{{todos}}</p>
     </div>
   </div>
 </template>
@@ -15,6 +15,9 @@ export default {
   computed: {
     count() {
       return this.$store.state.count;
+    },
+    todos() {
+      return this.$store.state.todos;
     }
   }
 };
