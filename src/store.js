@@ -13,8 +13,9 @@ export default new Vuex.Store({
       { id: 3, title: "todo item 3", completed: false }
     ]
   },
+  // 获取原有状态，添加修饰，并不会改变原有状态
   getters: {
-    count: state => ++state.count,
+    count: state => state.count,
     completedTodos: state => state.todos.filter(todo => todo.completed),
     // completedTodos: function (state) {
     //   return state.todos.filter(function (todo) {
@@ -36,7 +37,8 @@ export default new Vuex.Store({
     // }
   },
   mutations: {
-
+    incrementCount: state => state.count++,
+    decrementCount: (state, payload) => state.count -= payload.amount
   },
   actions: {
 
