@@ -14,7 +14,26 @@ export default new Vuex.Store({
     ]
   },
   getters: {
-
+    count: state => ++state.count,
+    completedTodos: state => state.todos.filter(todo => todo.completed),
+    // completedTodos: function (state) {
+    //   return state.todos.filter(function (todo) {
+    //     return todo.completed
+    //   })
+    // }
+    completedTodosCount: (state, getters) => getters.completedTodos.length,
+    // completedTodosCount: function (state, getters) {
+    //   return getters.completedTodos.length;
+    // }
+    getTodosById: state => id => state.todos.find(todo => todo.id == id),
+    getTodosById: function (state) {
+      // 处理东西
+      // (function(id) {
+      //   return statte.todos.find(function (todo) {
+      //     return todo.id == id;
+      //   })
+      // })(id)
+    }
   },
   mutations: {
 
