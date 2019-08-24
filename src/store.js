@@ -36,11 +36,36 @@ export default new Vuex.Store({
     //   })(id)
     // }
   },
+  // 改变状态
   mutations: {
     incrementCount: state => state.count++,
-    decrementCount: (state, payload) => state.count -= payload.amount
+    decrementCount: (state, payload) => state.count -= payload.amount,
+    setTodos: (state, todos) => state.todos = todos
   },
+  // 调用mutations的东西,异步(耗时)
   actions: {
-
+    incrementCountAsync: ({ commit }) => {
+      setTimeout(() => {
+        // 解构
+        // const object = {
+        //   name: "李照璇",
+        //   age:21
+        // }
+        // const name = object.name
+        // context/* = this.$store */
+        commit("incrementCount")
+      }, 2000)
+    },
+    decrementCountAsync: (context, payload) => {
+      setTimeout(() => {
+        context.commit("decrementCount", payload)
+      }, 1000)
+    },
+    async fetchDataAsync(context) {
+      // 解决异步出现混乱的情况
+      const response = await axios.get("http://jsonplaceholder.typicode.com/todos");
+      // console.log(response);
+      context.commit("setTodos", response.data)
+    }
   }
 })
