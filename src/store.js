@@ -9,7 +9,7 @@ export default new Vuex.Store({
     count: 0,
     todos: [
       { id: 1, title: "todo item 1", completed: false },
-      { id: 2, title: "todo item 2", completed: false },
+      { id: 2, title: "todo item 2", completed: true },
       { id: 3, title: "todo item 3", completed: false }
     ]
   },
@@ -26,14 +26,14 @@ export default new Vuex.Store({
     //   return getters.completedTodos.length;
     // }
     getTodosById: state => id => state.todos.find(todo => todo.id == id),
-    getTodosById: function (state) {
-      // 处理东西
-      // (function(id) {
-      //   return statte.todos.find(function (todo) {
-      //     return todo.id == id;
-      //   })
-      // })(id)
-    }
+    // getTodosById: function (state) {
+    //   处理东西
+    //   (function(id) {
+    //     return statte.todos.find(function (todo) {
+    //       return todo.id == id;
+    //     })
+    //   })(id)
+    // }
   },
   mutations: {
 
